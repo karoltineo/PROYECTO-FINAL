@@ -1,0 +1,69 @@
+---
+title: "PROYECTO FINAL"
+author: "GRUPO NRO5"
+format: html
+editor: visual
+---
+
+## PROYECTO FINAL
+
+**INTEGRANTES:**
+
+Huahuasoncco Sifuentes Rosario
+
+Tineo Berrospi Karol
+
+Marzano Gómez Rocío
+
+Flores Ubaldo Katerine
+
+Bartalo Najarro Yenny
+
+## SEMANA 14: Análisis de Regresión, Univariado y Multivariado
+
+**CASO No 1 - Regresión Univariado**
+
+```{r}
+set.seed(123)
+n <- 100
+IMC <- rnorm(n, 27, 4)
+PAS <- 90 + 1.5*IMC + rnorm(n, 0, 8)
+datos <- data.frame(IMC, PAS)
+head(datos)
+```
+
+```{r}
+modelo_uni <- lm(PAS ~ IMC, data = datos)
+summary(modelo_uni)
+```
+
+```{r}
+plot(datos$IMC, datos$PAS, main="PAS vs IMC", xlab="IMC", ylab="PAS")
+abline(modelo_uni, lwd=2)
+```
+
+**CASO No 2 - Regresión Multivariado**
+
+```{r}
+set.seed(123)
+n <- 120
+IMC <- rnorm(n, 27, 4)
+Edad <- rnorm(n, 45, 10)
+Actividad <- rnorm(n, 3, 1)
+```
+
+```{r}
+PAS <- 80 + 1.2*IMC + 0.6*Edad - 2.5*Actividad + rnorm(n, 0, 10)
+datos2 <- data.frame(IMC, Edad, Actividad, PAS)
+head(datos2)
+```
+
+```{r}
+modelo_multi <- lm(PAS ~ IMC + Edad + Actividad, data = datos2)
+summary(modelo_multi)
+```
+
+```{r}
+par(mfrow=c(2,2))
+plot(modelo_multi)
+```
