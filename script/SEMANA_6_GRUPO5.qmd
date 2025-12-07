@@ -1,0 +1,27 @@
+---
+title: "PROYECTO FINAL"
+author: "GRUPO NRO5"
+format: html
+editor: visual
+---
+
+## **PROYECTO FINAL**
+
+**INTEGRANTES:**\
+Huahuasoncco Sifuentes Rosario\
+Marzano Gomez Rocio\
+Tineo Berrospi Karol\
+Flores Ubaldo Katerine\
+Bartolo Najarro Yenny
+
+**SEMANA 6: Limpieza de data para utilizar una columna especifica**
+
+```{r}
+#cargando data
+data <- read_csv("C:/Users/PC/Downloads/s04_diabetes.csv")
+```
+
+```{r}
+#limpiar data de una columna específica
+data_limpia <- data[!is.na(data$Embarazos), ]
+```
